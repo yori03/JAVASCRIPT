@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jam Digital Real-Time</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+    #clock {
+        font-size: 24px;
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<div id="clock"></div>
+HARI YANG INDAH! TETAP SEMANGAT!
+<script>
+function updateClock() {
+    var now = new Date();
+    var days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+    var day = days[now.getDay()];
+    var hours = now.getHours().toString().padStart(2, '0');
+    var minutes = now.getMinutes().toString().padStart(2, '0');
+    var seconds = now.getSeconds().toString().padStart(2, '0');
+    var currentDate = now.getDate().toString().padStart(2, '0');
+    var currentMonth = (now.getMonth() + 1).toString().padStart(2, '0'); // Bulan dimulai dari 0, jadi perlu ditambah 1
+    var currentYear = now.getFullYear();
+
+    var clockDiv = document.getElementById('clock');
+    clockDiv.textContent = 'Hari: ' + day + ' | Tanggal: ' + currentDate + '/' + currentMonth + '/' + currentYear + ' | Waktu: ' + hours + ':' + minutes + ':' + seconds;
+
+    // Update the clock every 1 second
+    setTimeout(updateClock, 1000);
+}
+
+// Initial call to update the clock
+updateClock();
+</script>
+</body>
+</html>

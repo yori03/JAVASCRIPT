@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mengakses Objek radio</title>
+</head>
+<body>
+Klik pada musik yang paling Anda sukai<br>
+<form name="formTes" method="GET">
+    <input type="radio" name="radioMusik" value="Jazz" onclick="info()">Jazz<br>
+    <input type="radio" name="radioMusik" value="Keroncong" onclick="info()">Keroncong<br>
+    <input type="radio" name="radioMusik" value="Dangdut" onclick="info()">Dangdut<br>
+    <input type="radio" name="radioMusik" value="Lainnya" onclick="info()">Lainnya<br>
+    <hr>
+    Info: <input type="text" name="fieldMusik" size="40">
+</form>
+
+<script type="text/javascript">
+function info() {
+    var radios = document.getElementsByName("radioMusik");
+    var fieldMusik = document.getElementsByName("fieldMusik")[0];
+    
+    for (var i = 0; i < radios.length; i++) {
+        if (radios[i].checked) {
+            fieldMusik.value = radios[i].value;
+            break;
+        }
+    }
+}
+</script>
+</body>
+</html>
